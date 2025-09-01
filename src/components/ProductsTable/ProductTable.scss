@@ -1,0 +1,33 @@
+.selected {
+    background-color: rgb(196, 225, 234);
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    .header{     
+        display: flex;
+        flex-direction: row;
+        margin: 6px;
+    }
+    .body {
+        display: flex;
+        flex-direction: row;
+        .details {
+            display: flex;
+            flex-direction: column;
+            border: solid black 2px;
+            margin-left: 5px;
+            width: 30vw;
+        }
+        .product {
+            display: flex;
+            flex-direction: row;
+            border: solid black 2px;
+            margin-bottom: 12px;
+            width: 70vw;
+            padding: 10px;
+        }
+
+    }
+}
