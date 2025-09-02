@@ -2,16 +2,18 @@ import React, { useMemo, useState } from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import { RootState } from '../../app/store';
-import {addProduct, ProductItem, removeProduct} from "./ProductsTableSlice.ts";
+import {ProductItem, removeProduct} from "./ProductsTableSlice.ts";
 import image from "../../img.png"
 import ProductItemDetails from "./../ProductItem/ProductItem.tsx"
 import {Select, MenuItem, Button} from '@mui/material'
+import { useParams } from "react-router-dom";
 
 export default function ProductsTable(){
     const dispatch = useDispatch();
     const products = useSelector((state:RootState) => state.products.items);
+    const { id } = useParams();
     const [allProducts, setAllProducts] = useState<ProductItem[]>(products)
-    const [itemClicked, setItemClicked] = useState<any>({});
+    const [itemClicked, setItemClicked] = useState<any>({id:-1});
     const [sortBy, setSortBy] = useState("");
     const [page, setPage] = useState(1);
     const totalPages = Math.max(1, Math.ceil(allProducts.length / 5));

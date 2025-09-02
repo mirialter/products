@@ -16,12 +16,14 @@ export interface ProductsState {
 
 const initialState: ProductsState = {
   items: [
-    {id:0, name:"Product 1",price:120, creationDate: new Date(), description: "Product 1 description"},
-    {id:1, name:"Product 2",price:130, creationDate: new Date(), description: "Product 2 description"},
-    {id:2, name:"Product 3",price:120, creationDate: new Date()},
-    {id:3, name:"Product 4",price:120, creationDate: new Date(), description: "Product 4 description"}
+    // {id:0, name:"Product 1",price:120, creationDate: new Date(), description: "Product 1 description"},
+    // {id:1, name:"Product 2",price:130, creationDate: new Date(), description: "Product 2 description"},
+    // {id:2, name:"Product 3",price:120, creationDate: new Date()},
+    // {id:3, name:"Product 4",price:120, creationDate: new Date(), description: "Product 4 description"}
+    ...JSON.parse(localStorage.getItem("products") || "[]")
+
   ],
-  counter: 4
+  counter: 0
 };
 
 export const productsSlice = createSlice({
