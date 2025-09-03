@@ -27,7 +27,7 @@ export const productsSlice = createSlice({
   reducers: {
     addProduct: (state, action: PayloadAction<ProductItem>) => {
       state.items.push({...action.payload, id: state.counter, creationDate: new Date});
-      state.counter++;
+      state.counter = state.counter+1;
       localStorage.setItem("products", JSON.stringify(state.items));
     },
     removeProduct: (state, action: PayloadAction<number>) => {

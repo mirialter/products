@@ -19,6 +19,12 @@ export default function ProductsTable(){
     const totalPages = Math.max(1, Math.ceil(allProducts.length / 5));
 
     useEffect(() => {
+        if(id) {
+            setItemClicked({id: Number(id)});
+        }
+    }, [id])
+
+    useEffect(() => {
         setAllProducts(products)
         localStorage.setItem("products", JSON.stringify(products));
     }, [products]);
