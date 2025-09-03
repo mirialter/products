@@ -17,9 +17,8 @@ export interface ProductsState {
 const initialState: ProductsState = {
   items: [
     ...JSON.parse(localStorage.getItem("products") || "[]")
-
   ],
-  counter: 0
+  counter: [...JSON.parse(localStorage.getItem("products") || "[]")].length
 };
 
 export const productsSlice = createSlice({
